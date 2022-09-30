@@ -1,6 +1,8 @@
 import React from 'react';
-import { Grid } from '@material-ui/core';
+import Navbar from './components/statics/navbar/Navbar';
+import Footer from './components/statics/footer/Footer';
 import Home from './paginas/home/Home';
+import { Grid } from '@material-ui/core';
 import './App.css';
 
 let nome = "Rurie Miguel Pacheco";
@@ -8,29 +10,9 @@ let nome = "Rurie Miguel Pacheco";
 function App() {
   return (
     <>
-      <Grid container spacing={3}>
-        <Grid item xs={12}>
-          <Home />
-        </Grid>
-        <Grid item xs={12} sm={6}>
-          <Home />
-        </Grid>
-        <Grid item xs={12} sm={6}>
-          <Home />
-        </Grid>
-        <Grid item xs={12} sm={3}>
-          <Home />
-        </Grid>
-        <Grid item xs={12} sm={3}>
-          <Home />
-        </Grid>
-        <Grid item xs={12} sm={3}>
-          <Home />
-        </Grid>
-        <Grid item xs={12} sm={3}>
-          <Home />
-        </Grid>
-      </Grid>
+      <Navbar/>
+      <Home/>
+      <Footer/>
     </>
   );
 }
