@@ -10,6 +10,7 @@ let nome = "Rurie Miguel Pacheco";
 function App() {
   return (
     <>
+    BrowserRouter, Routes
       <Navbar/>
       <Home/>
       <Footer/>
