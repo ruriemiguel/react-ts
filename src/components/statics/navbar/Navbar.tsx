@@ -7,6 +7,8 @@ import MailIcon from '@material-ui/icons/Mail';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import MoreIcon from '@material-ui/icons/MoreVert';
 import React from 'react';
+import { Link } from 'react-router-dom';
+import './Navbar.css'
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -27,7 +29,7 @@ const useStyles = makeStyles((theme: Theme) =>
             borderRadius: theme.shape.borderRadius,
             backgroundColor: alpha(theme.palette.common.white, 0.15),
             '&:hover': {
-                backgroundColor: alpha(theme.palette.common.white, 0.25),
+                backgroundColor: '#140e19',
             },
             marginRight: theme.spacing(2),
             marginLeft: 0,
@@ -112,6 +114,7 @@ export default function Navbar() {
         >
             <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
             <MenuItem onClick={handleMenuClose}>My account</MenuItem>
+            <Link to='/login' className='text-decorator-none'><MenuItem onClick={handleMenuClose} style={{cursor: "pointer", color: "black"}}>Sair</MenuItem></Link>
         </Menu>
     );
 
@@ -158,7 +161,7 @@ export default function Navbar() {
 
     return (
         <div className={classes.grow}>
-            <AppBar position="static">
+            <AppBar position="static" style={{backgroundColor:'black'}}>
                 <Toolbar>
                     <IconButton
                         edge="start"
@@ -169,7 +172,7 @@ export default function Navbar() {
                         <MenuIcon />
                     </IconButton>
                     <Typography className={classes.title} variant="h6" noWrap>
-                        Material-UI
+                        The RuriBlog
                     </Typography>
                     <div className={classes.search}>
                         <div className={classes.searchIcon}>
