@@ -24,7 +24,7 @@ function Home() {
                     <img className="logo" src="https://i.imgur.com/XLLH2qM.png" alt="rurielogo" width="500px" height="500px" />
                 </Grid>
                 <Grid xs={12} className='postagens'>
-                    <TabPostagem/>
+                    <TabPostagem />
                 </Grid>
             </Grid>
         </>

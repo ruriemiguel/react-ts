@@ -47,11 +47,11 @@ function Login() {
     }
 
     return (
-        <Grid container direction='row' justifyContent='center' alignItems='center' style={{ backgroundColor: "#e3a731" }}>
-            <Grid alignItems='center' xs={6}>
+        <Grid container direction='row' justifyContent='center' alignItems='center' className='imagem'>
+            <Grid alignItems='center' xs={6} className='fundofume'>
                 <Box paddingX={20}>
                     <form onSubmit={onSubmit}>
-                        <Typography variant='h3' gutterBottom color='textPrimary' component='h3' align='center' className='textos1'>Entrar</Typography>
+                        <Typography variant='h3' gutterBottom color='textPrimary' component='h3' align='center' className='titulo1'>The Tibian Blog</Typography>
                         <TextField value={userLogin.usuario} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} id='usuario' label='usuario' variant='outlined' name='usuario' margin='normal' fullWidth></TextField>
                         <TextField value={userLogin.senha} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} id='senha' label='senha' variant='outlined' name='senha' margin='normal' fullWidth type='password'></TextField>
                         <Box marginTop={2} textAlign='center'>
@@ -64,19 +64,16 @@ function Login() {
                     </form>
                     <Box display='flex' justifyContent='center' marginTop={2}>
                         <Box marginRight={1}>
-                            <Typography variant='subtitle1' gutterBottom align='center'>Novo no RuriBlog?</Typography>
+                            <Typography variant='subtitle1' className='textos2' gutterBottom align='center'>Novo no RuriBlog?</Typography>
                         </Box>
                         <Link to='/cadastrousuario'>
                             <Typography variant='subtitle1' gutterBottom align='center' className='textos1'>Cadastre-se aqui</Typography>
                         </Link>
                         <Box>
-                            <Typography variant='subtitle1' gutterBottom align='center'>, vem comigo!</Typography>
+                            <Typography variant='subtitle1' className='textos2' gutterBottom align='center'>, vem comigo!</Typography>
                         </Box>
                     </Box>
                 </Box>
-            </Grid>
-            <Grid xs={6} className='imagem'>
-
             </Grid>
         </Grid>
     );
