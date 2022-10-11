@@ -9,6 +9,8 @@ import MoreIcon from '@material-ui/icons/MoreVert';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './Navbar.css'
+import useLocalStorage from 'react-use-localstorage';
+import { useNavigate } from 'react-router-dom';
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -77,6 +79,16 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 export default function Navbar() {
+
+    const [token, setToken] = useLocalStorage('token');
+    let navigate = useNavigate();
+
+    function goLogout() {
+        setToken('')
+        alert('Usuário deslogado!')
+        navigate('/login')
+    }
+
     const classes = useStyles();
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
     const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState<null | HTMLElement>(null);
@@ -112,9 +124,26 @@ export default function Navbar() {
             open={isMenuOpen}
             onClose={handleMenuClose}
         >
-            <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-            <MenuItem onClick={handleMenuClose}>My account</MenuItem>
-            <Link to='/login' className='text-decorator-none'><MenuItem onClick={handleMenuClose} style={{cursor: "pointer", color: "black"}}>Sair</MenuItem></Link>
+            <Link to='/home' className='text-decorator-none'>
+                <MenuItem onClick={handleMenuClose} style={{ cursor: "pointer", color: "black" }}>
+                    Home
+                </MenuItem>
+            </Link>
+            <Link to='/temas' className='text-decorator-none'>
+                <MenuItem onClick={handleMenuClose} style={{ cursor: "pointer", color: "black" }}>
+                    Temas
+                </MenuItem>
+            </Link>
+            <Link to='/posts' className='text-decorator-none'>
+                <MenuItem onClick={handleMenuClose} style={{ cursor: "pointer", color: "black" }}>
+                    Postagens
+                </MenuItem>
+            </Link>
+            <Link to='/login' className='text-decorator-none'>
+                <MenuItem onClick={goLogout} style={{ cursor: "pointer", color: "black" }}>
+                    Sair
+                </MenuItem>
+            </Link>
         </Menu>
     );
 
@@ -161,7 +190,7 @@ export default function Navbar() {
 
     return (
         <div className={classes.grow}>
-            <AppBar position="static" style={{backgroundColor:'black'}}>
+            <AppBar position="static" style={{ backgroundColor: 'black' }}>
                 <Toolbar>
                     <IconButton
                         edge="start"

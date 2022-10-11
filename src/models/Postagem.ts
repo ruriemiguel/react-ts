@@ -3,7 +3,7 @@ import Tema from '../models/Tema'
 interface Postagem {
     id: number;
     titulo: string;
-    text: string;
+    texto: string;
     tema?: Tema | null;
 }
 
