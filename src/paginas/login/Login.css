@@ -13,8 +13,13 @@
 }
 
 .label1 {
-    text: white;
-    font-weight: bold;
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 4%;
+    text-decoration: none;
+}
+
+.label1:active {
+    outline: none;
 }
 
 .imagem {

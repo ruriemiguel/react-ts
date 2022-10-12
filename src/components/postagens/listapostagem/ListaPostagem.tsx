@@ -44,14 +44,14 @@ function ListaPostagem() {
                                 <Typography color="textSecondary" gutterBottom>
                                     Postagens
                                 </Typography>
+                                <Typography variant="body2" component="p">
+                                    Tema: {post.tema?.descricao}
+                                </Typography>
                                 <Typography variant="h5" component="h2">
                                     {post.titulo}
                                 </Typography>
                                 <Typography variant="body2" component="p">
                                     {post.texto}
-                                </Typography>
-                                <Typography variant="body2" component="p">
-                                    {post.tema?.descricao}
                                 </Typography>
                             </CardContent>
                             <CardActions>

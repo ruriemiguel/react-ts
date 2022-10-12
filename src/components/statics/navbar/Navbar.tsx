@@ -174,17 +174,7 @@ export default function Navbar() {
                 </IconButton>
                 <p>Notifications</p>
             </MenuItem>
-            <MenuItem onClick={handleProfileMenuOpen}>
-                <IconButton
-                    aria-label="account of current user"
-                    aria-controls="primary-search-account-menu"
-                    aria-haspopup="true"
-                    color="inherit"
-                >
-                    <AccountCircle />
-                </IconButton>
-                <p>Profile</p>
-            </MenuItem>
+
         </Menu>
     );
 
@@ -201,7 +191,7 @@ export default function Navbar() {
                         <MenuIcon />
                     </IconButton>
                     <Typography className={classes.title} variant="h6" noWrap>
-                        The RuriBlog
+                        The Tibian Blog!
                     </Typography>
                     <div className={classes.search}>
                         <div className={classes.searchIcon}>
@@ -218,13 +208,13 @@ export default function Navbar() {
                     </div>
                     <div className={classes.grow} />
                     <div className={classes.sectionDesktop}>
-                        <IconButton aria-label="show 4 new mails" color="inherit">
-                            <Badge badgeContent={4} color="secondary">
+                        <IconButton color="inherit">
+                            <Badge color="secondary">
                                 <MailIcon />
                             </Badge>
                         </IconButton>
-                        <IconButton aria-label="show 17 new notifications" color="inherit">
-                            <Badge badgeContent={17} color="secondary">
+                        <IconButton color="inherit">
+                            <Badge color="secondary">
                                 <NotificationsIcon />
                             </Badge>
                         </IconButton>
