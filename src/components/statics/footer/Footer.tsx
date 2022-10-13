@@ -4,10 +4,19 @@ import FacebookIcon from '@material-ui/icons/Facebook';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import InstagramIcon from '@material-ui/icons/Instagram';
 import './Footer.css';
+import { useSelector } from 'react-redux';
+import { TokenState } from '../../../store/tokens/tokensReducer';
 
-function Footer(): JSX.Element {
-    return (
-        <>
+function Footer() {
+
+    const token = useSelector<TokenState, TokenState["tokens"]>(
+        (state) => state.tokens
+    )
+
+    var footerComponent;
+
+    if (token != '') {
+        footerComponent =
             <Grid container direction="row" justifyContent="center" alignItems="center">
                 <Grid alignItems="center" item xs={12}>
                     <Box className='box1'>
@@ -22,7 +31,7 @@ function Footer(): JSX.Element {
                                 <LinkedInIcon className='redes' />
                             </a>
                             <a href="https://www.tibia.com/" target="_blank">
-                                <img alt="Rurie-logo" src="https://i.imgur.com/pXksYgO.gif" className='redes' />
+                                <img alt="Rurie-logo" src="https://i.imgur.com/9U8G8iN.gif" className='redes' />
                             </a>
                         </Box>
                     </Box>
@@ -35,6 +44,11 @@ function Footer(): JSX.Element {
                     </Box>
                 </Grid>
             </Grid>
+    }
+
+    return (
+        <>
+            {footerComponent}
         </>
     )
 }

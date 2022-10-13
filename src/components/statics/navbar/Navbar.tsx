@@ -9,8 +9,10 @@ import MoreIcon from '@material-ui/icons/MoreVert';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './Navbar.css'
-import useLocalStorage from 'react-use-localstorage';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { TokenState } from '../../../store/tokens/tokensReducer';
+import { addToken } from '../../../store/tokens/actions';
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -80,11 +82,14 @@ const useStyles = makeStyles((theme: Theme) =>
 
 export default function Navbar() {
 
-    const [token, setToken] = useLocalStorage('token');
     let navigate = useNavigate();
+    const token = useSelector<TokenState, TokenState["tokens"]>(
+        (state) => state.tokens
+    )
+    const dispatch = useDispatch();
 
     function goLogout() {
-        setToken('')
+        dispatch(addToken(''))
         alert('Usuário deslogado!')
         navigate('/login')
     }
@@ -178,7 +183,10 @@ export default function Navbar() {
         </Menu>
     );
 
-    return (
+    var navbarComponent;
+
+    if (token != '') {
+        navbarComponent =
         <div className={classes.grow}>
             <AppBar position="static" style={{ backgroundColor: 'black' }}>
                 <Toolbar>
@@ -245,5 +253,11 @@ export default function Navbar() {
             {renderMobileMenu}
             {renderMenu}
         </div>
+    }
+
+    return (
+        <>
+            {navbarComponent}
+        </>
     );
 }
